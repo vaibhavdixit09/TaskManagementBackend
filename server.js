@@ -5,18 +5,19 @@ const routes = require("./routes/routes");
 const app = express();
 require("dotenv").config();
 
-
 // Use cors middleware
 app.use(
   cors({
-    origin: "https://jazzy-kleicha-8be487.netlify.app", // Allow this origin
+    origin: [
+      "https://jazzy-kleicha-8be487.netlify.app",
+      "http://localhost:5173",
+    ], // Allow this origin
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
   })
 );
 // Handle preflight requests
-app.options('*', cors());
-
+app.options("*", cors());
 
 require("./utils/scheduler");
 
