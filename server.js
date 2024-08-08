@@ -5,12 +5,15 @@ const routes = require("./routes/routes");
 const app = express();
 require("dotenv").config();
 
-// Use cors middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://66b46fb2a013aeaf4919348d--jazzy-kleicha-8be487.netlify.app/"] // Allow requests from this origin
+    origin: [
+      "http://localhost:5173",
+      "https://66b46fb2a013aeaf4919348d--jazzy-kleicha-8be487.netlify.app"
+    ] // Allow requests from these origins
   })
 );
+
 
 app.use(express.json());
 
