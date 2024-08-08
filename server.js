@@ -8,7 +8,7 @@ require("dotenv").config();
 // Use cors middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://heroic-llama-3bf5f3.netlify.app"] // Allow requests from this origin
+    origin: ["http://localhost:5173","https://jazzy-kleicha-8be487.netlify.app/"] // Allow requests from this origin
   })
 );
 
