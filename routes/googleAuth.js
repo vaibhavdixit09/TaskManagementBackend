@@ -28,17 +28,22 @@ router.get(
     }
 
     const payload = {
-      id: req.user.id,
-      displayName: req.user.displayName,
+      _id: req.user._id,
+      googleId: req.user.googleId,
+      firstname: req.user.firstname,
+      lastname: req.user.lastname,
       email: req.user.email,
-      profilePicture: req.user.profilePicture,
+      password: req.user.password,
     };
-
+    console.log(payload, "payload");
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
 
-    res.json({ user: req.user, token });
+    // res.json({ user: req.user, payload, token });
+    res.redirect(
+      `http://localhost:5173/dashboard/home?token=${token}&Is_socialLogin=true`
+    );
   }
 );
 
