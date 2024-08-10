@@ -21,10 +21,10 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
   })
 );
+app.options("*", cors());
 // Handle preflight requests
 // Middleware to parse URL-encoded bodies (for form submissions)
 app.use(express.urlencoded({ extended: true }));
-app.options("*", cors());
 require("./config/passport");
 require("./utils/scheduler");
 
