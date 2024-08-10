@@ -23,6 +23,7 @@ const login = async (req, res) => {
 
 // Controller to get the authenticated user's details
 const getUserDetails = async (req, res) => {
+  console.log(req.body, "body");
   try {
     const user = await userService.getUserDetails(req.user.id);
     res.json(user);

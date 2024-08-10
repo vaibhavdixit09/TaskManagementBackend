@@ -21,21 +21,19 @@ router.get(
   }),
   (req, res) => {
     // Check if req.user is populated
-    console.log("User Object:", req.user);
 
     if (!req.user) {
       return res.status(500).json({ error: "User data is not available" });
     }
 
     const payload = {
-      _id: req.user._id,
+      id: req.user.id,
       googleId: req.user.googleId,
       firstname: req.user.firstname,
       lastname: req.user.lastname,
       email: req.user.email,
       password: req.user.password,
     };
-    console.log(payload, "payload");
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
