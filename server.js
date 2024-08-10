@@ -11,18 +11,12 @@ require("dotenv").config();
 
 app.use(express.json());
 // Use cors middleware
-app.use(
-  cors({
-    origin: [
-      "https://jazzy-kleicha-8be487.netlify.app",
-      "http://localhost:5173",
-    ], // Allow this origin
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
-  })
-);
-app.options("*", cors());
-// Handle preflight requests
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 // Middleware to parse URL-encoded bodies (for form submissions)
 app.use(express.urlencoded({ extended: true }));
 require("./config/passport");
