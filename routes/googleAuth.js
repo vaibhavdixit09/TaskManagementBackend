@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Initiate Google OAuth
 router.get(
-  "/auth/google",
+  "/auth/google",  
   passport.authenticate("google", {
     scope: ["profile", "email"],
   })
@@ -17,7 +17,7 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173/login",
+    failureRedirect: "https://66b713a2eded4fecc5b338ec--jazzy-kleicha-8be487.netlify.app/login",
   }),
   (req, res) => {
     // Check if req.user is populated
@@ -40,7 +40,7 @@ router.get(
 
     // res.json({ user: req.user, payload, token });
     res.redirect(
-      `http://localhost:5173/dashboard/home?token=${token}&Is_socialLogin=true`
+      `https://66b713a2eded4fecc5b338ec--jazzy-kleicha-8be487.netlify.app/dashboard/home?token=${token}&Is_socialLogin=true`
     );
   }
 );
